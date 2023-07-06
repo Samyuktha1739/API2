@@ -5,7 +5,7 @@ def test_api_put():
     data = {'name': 'morpheus', 'job': 'zion resident'}
     response_put = requests.put(url="https://reqres.in/api/users/2", data=data)
     # Check the response status code
-    if response_put.status_code == 200:
+    if response_put.status_code == 400:
         # Print the response content
         print(response_put.json())
     else:
