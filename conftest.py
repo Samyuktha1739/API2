@@ -8,7 +8,7 @@ def setup(request):
     prefs = {'download.default_directory': '/path/to/dir'}
     chrome_options.add_experimental_option('prefs', prefs)
     driver = webdriver.Chrome(chrome_options=chrome_options)
-    driver.get("https://magento.softwaretestingboard.com/")
+    driver.get("hhttps://www.godaddy.com/en-in")
     driver.maximize_window()
     request.cls.driver = driver
     yield
