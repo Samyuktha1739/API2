@@ -7,3 +7,16 @@ class HomePage:
 
     def searchButton(self, xpath):
         return self.driver.find_element(By.XPATH, xpath)
+
+    def searchSubmit(self, locator):
+        return self.driver.find_element(By.ID, locator)
+
+    def nokia(self, xpath):
+        return self.driver.find_element(By.XPATH, xpath)
+
+    def save(self, xpath):
+        return self.driver.find_element(By.XPATH,xpath)
+
+    def searchComputer(self, xpath):
+        return self.driver.find_element(By.XPATH,xpath)
+
