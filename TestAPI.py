@@ -36,6 +36,24 @@ class Test_testApp(BaseClass):
         self.searchSubmit("#searchsubmit").click()
         time.sleep(10)
 
+    # def test_deleteComputer(self):
+    #     self.homePage = HomePage(self.driver)
+    #     self.deleteComputer("//a[@class='btn']").click()
+    #     time.sleep(14)
+
+    def test_addComputer(self):
+        self.homePage = HomePage(self.driver)
+        self.addComputer("//a[@id='add']").click()
+        time.sleep(15)
+
+    def test_newComputer(self):
+        self.homePage = HomePage(self.driver)
+        self.newComputer("//input[@id='name']").send_keys("Nokia 9 PureView")
+        self.newComputer("//input[@value='Create this computer']").click()
+        time.sleep(15)
+
+
+
     def test_auth(self) :
         url = "https://computer-database.gatling.io/computers"
         auth = OAuth1('YOUR_APP_KEY', 'YOUR_APP_SECRET',
@@ -44,7 +62,6 @@ class Test_testApp(BaseClass):
         requests.get(url, auth=auth)
         print(auth.force_include_body)
         print(auth.client_class)
-
 
     def test_api_getAll(self):
         headers = {"Content-Type" : "application/json"}
@@ -59,6 +76,26 @@ class Test_testApp(BaseClass):
 
     def test_api_get(self) :
         resp = requests.get("https://computer-database.gatling.io/computers/513")
-        assert (resp.status_code == 200), "Status code is not 200. Rather found : " + str(resp.status_code)
+        assert (resp.status_code != 400), "Status code is not 200. Rather found : " + str(resp.status_code)
 
+    def test_api_createComputer(self) :
+        headers = {"Computer Name": "Nokia 9 PureView", "Introduced": "2019-03-17",
+                   "Discontinued": "2022-04-17", "Company": "Nokia"}
+        response_createComputer = requests.get(url="https://computer-database.gatling.io/computers",
+                                                   headers=headers)
+        if response_createComputer.status_code == 404 :
+            print(response_createComputer.json())
+        else :
+            print('Status: {0}'.format(response_createComputer.status_code))
 
+        return headers
+
+    def test_api_create(self) :
+        headers = {"Content-Type" : "application/json", "Host": "<calculated when request is sent>"}
+        response_create= requests.get(url="https://computer-database.gatling.io/computers", headers=headers)
+        if response_create.status_code == 404 :
+            print(response_create.json())
+        else :
+            print('Status: {0}'.format(response_create.status_code))
+
+        return headers

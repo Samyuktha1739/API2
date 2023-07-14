@@ -15,8 +15,17 @@ class HomePage:
         return self.driver.find_element(By.XPATH, xpath)
 
     def save(self, xpath):
-        return self.driver.find_element(By.XPATH,xpath)
+        return self.driver.find_element(By.XPATH, xpath)
 
     def searchComputer(self, xpath):
-        return self.driver.find_element(By.XPATH,xpath)
+        return self.driver.find_element(By.XPATH, xpath)
+
+    # def deleteComputer(self, xpath):
+    #     return self.driver.find_element(By.XPATH, xpath)
+
+    def addComputet(self, xpath):
+        return self.driver.find_element(By.XPATH, xpath)
+
+    def newComputer(self, xpath):
+        return self.driver.find_element(By.XPATH, xpath)
 

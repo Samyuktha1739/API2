@@ -33,3 +33,20 @@ class BaseClass:
             EC.element_to_be_clickable((By.XPATH, xpath)))
         return searchSubmit
 
+
+    # def deleteComputer(self, xpath):
+    #     deleteComputer = WebDriverWait(self.driver, 45).until(
+    #         EC.element_to_be_clickable((By.XPATH, xpath)))
+    #     return deleteComputer
+
+
+    def addComputer(self, xpath):
+        addComputer = WebDriverWait(self.driver, 15).until(
+            EC.element_to_be_clickable((By.XPATH, xpath)))
+        return addComputer
+
+
+    def newComputer(self, xpath):
+        newComputer = WebDriverWait(self.driver, 15).until(
+            EC.element_to_be_clickable((By.XPATH, xpath)))
+        return newComputer
